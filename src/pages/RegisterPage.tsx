@@ -16,11 +16,14 @@ import { register } from "@/store/features/auth/authSlice";
 import { AppDispatch, RootState } from "@/store/store";
 import { AuthNavigation } from "@/components/AuthNavigation";
 import { useToast } from "@/hooks/useToast";
+import { useNavigate } from "react-router-dom";
+import { PUBLIC_ROUTES } from "@/constant/routes";
 
 export const RegisterPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { loading, error } = useSelector((state: RootState) => state.auth);
   const { toast } = useToast();
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
     username: "",
@@ -37,6 +40,7 @@ export const RegisterPage = () => {
           title: "Success",
           description: "Registration successful!",
         });
+        navigate(PUBLIC_ROUTES.LOGIN)
       } else if (register.rejected.match(resultAction)) {
         throw new Error("failed")
       }

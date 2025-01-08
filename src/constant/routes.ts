@@ -1,6 +1,5 @@
 export const PUBLIC_ROUTES = {
-  ROOT: "/",
-  LOGIN: "/login",
+  LOGIN: "/",
   REGISTER: "/register",
 } as const;
 

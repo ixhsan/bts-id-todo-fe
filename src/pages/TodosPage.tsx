@@ -69,7 +69,7 @@ const NoteCard = ({ note }: { note: NoteCard }) => (
   </div>
 );
 
-export const Todos = () => {
+export const TodosPage = () => {
   console.log("loaded todos")
   return (
     <div className="p-8">
