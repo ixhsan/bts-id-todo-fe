@@ -38,11 +38,11 @@ export const LoginPage = () => {
           description: "Login successful!",
         });
       }
-    } catch (err) {
+    } catch (error) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: error || "Login failed",
+        description: "Login failed",
       });
     }
   };
