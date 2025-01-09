@@ -15,11 +15,9 @@ export const todoService = {
   },
 
   remove: async (data: TodoDeleteRequest) => {
-    const response = await baseApi.delete<BaseResponse<null>>("/checklist", {
-      params: {
-        id: data.id,
-      },
-    });
+    const response = await baseApi.delete<BaseResponse<null>>(
+      `/checklist/${data.id}`
+    );
     return response.data.data;
   },
 };
