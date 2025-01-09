@@ -17,11 +17,13 @@ import { login } from "@/store/features/auth/authSlice";
 import { AppDispatch, RootState } from "@/store/store";
 import { AuthNavigation } from "@/components/AuthNavigation";
 import { useToast } from "@/hooks/useToast";
+import { PRIVATE_ROUTES } from "@/constant/routes";
 
 export const LoginPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { loading, error } = useSelector((state: RootState) => state.auth);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -37,6 +39,7 @@ export const LoginPage = () => {
           title: "Success",
           description: "Login successful!",
         });
+        navigate(PRIVATE_ROUTES.TODOS);
       }
     } catch (error) {
       toast({
